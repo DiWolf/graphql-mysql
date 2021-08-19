@@ -1,6 +1,6 @@
 type Query {
   getUsuarios: [User]!
-  login (user:String, password:String): String!
+  login(user: String, password: String): String!
 }
 
 type Mutation {
@@ -16,6 +16,7 @@ type User {
   activo: Boolean!
   alta: String
   rol: String
+  personas: [Persona]
 }
 
 input UserInput {

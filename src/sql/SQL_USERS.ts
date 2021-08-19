@@ -6,7 +6,7 @@ export const SELECT_USERS = "SELECT * FROM usuarios";
 //Actualizar información del usuario
 export const UPDATE_USER_INFO = "";
 //Actualizar contraseña del usuario
-export const UPDATE_PASSWORD = "";
+export const UPDATE_PASSWORD = "UPDATE usuarios set password=? WHERE id=?";
 //Desactivar un usuario usuario
 export const DEACTIVATE_USER = "UPDATE usuarios SET activo=false WHERE id=?";
 //Activar un usuario
