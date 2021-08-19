@@ -16,6 +16,18 @@ type Persona {
   apellidoMaterno: String
   Curp: String
   Rfc: String
+  direccion: [Direccion]
+}
+
+type Direccion {
+  calle: String
+  noExterior: String
+  noInterior: String
+  primerCruzamiento: String
+  segundoCruzamiento: String
+  colonia: String
+  ciudad: String
+  estado: String
 }
 
 input InputPersona {
@@ -25,9 +37,10 @@ input InputPersona {
   apellidoMaterno: String
   Curp: String
   Rfc: String
+  direccion: InputDireccion
 }
 
-input Direccion {
+input InputDireccion {
   calle: String
   noExterior: String
   noInterior: String
