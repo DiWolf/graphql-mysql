@@ -1,0 +1,39 @@
+type Query {
+  getClients: [Persona!]
+}
+
+type Mutation {
+  addpersona(persona: InputPersona): String
+  updatePersona(persona: InputPersona): String
+  deactivatePersona(id: ID!): String
+  activatePersona(id: ID!): String
+}
+
+type Persona {
+  id: ID!
+  nombre: String
+  apellidoPaterno: String
+  apellidoMaterno: String
+  Curp: String
+  Rfc: String
+}
+
+input InputPersona {
+  id: ID
+  nombre: String!
+  apellidoPaterno: String!
+  apellidoMaterno: String
+  Curp: String
+  Rfc: String
+}
+
+input Direccion {
+  calle: String
+  noExterior: String
+  noInterior: String
+  primerCruzamiento: String
+  segundoCruzamiento: String
+  colonia: String
+  ciudad: String
+  estado: String
+}

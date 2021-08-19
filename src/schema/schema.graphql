@@ -1,0 +1,28 @@
+type Query {
+  getUsuarios: [User]!
+  login (user:String, password:String): String!
+}
+
+type Mutation {
+  createAccount(User: UserInput): String
+}
+
+type User {
+  id: ID!
+  user: String!
+  password: String!
+  nombre: String!
+  empleadoId: String
+  activo: Boolean!
+  alta: String
+  rol: String
+}
+
+input UserInput {
+  user: String!
+  password: String!
+  nombre: String!
+  empleadoId: String
+  activo: Boolean!
+  rol: String
+}
