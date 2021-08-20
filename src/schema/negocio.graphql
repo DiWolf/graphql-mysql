@@ -1,0 +1,31 @@
+type Query {
+  getNegocios: [Negocio!]
+}
+
+type Mutation {
+  addNegocios(negocio: InputNegocio, idPersona: ID): String
+}
+
+#Estructura de la información de los negocios que pertenecen al contribuyente
+type Negocio {
+  #Identificador único, este es generado por el sistema
+  id: ID!
+  #Razón Social: Nombre del negocio del contribuyente
+  razonSocial: String!
+  #RFC: Registro Federal de Causantes
+  rfc: String
+  activo: Boolean
+  cuentaPredial: String
+  rpu: String
+  direccion: [Direccion]
+}
+
+#datos que el usuario va a capturar
+input InputNegocio {
+  #Id del Negocio (generado por el sistema)
+  id: ID
+  razonSocial: String!
+  rfc: String
+  cuentaPredial: String
+  rpu: String
+}

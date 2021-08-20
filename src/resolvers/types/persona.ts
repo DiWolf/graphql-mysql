@@ -1,4 +1,7 @@
-import { JOIN_CUSTOMERS_DIRECTION } from "./../../sql/SQL_RELATIONS";
+import {
+  JOIN_CUSTOMERS_DIRECTION,
+  JOIN_CUSTOMERS_STORES,
+} from "./../../sql/SQL_RELATIONS";
 import { IResolvers } from "graphql-tools";
 const resolverTypesPersona: IResolvers = {
   Persona: {
@@ -20,6 +23,23 @@ const resolverTypesPersona: IResolvers = {
         });
         //retornamos los datos
         return direccion;
+      } catch (error: any) {
+        throw new Error(error);
+      }
+    },
+    async negocios(parent, __, { sql }) {
+      const negocios = new Array(0);
+      try {
+        const [rows]: any = await sql.query(JOIN_CUSTOMERS_STORES, parent.id);
+        rows.forEach((element: any) => {
+          negocios.push({
+            id: element.idnegocio,
+            razonSocial: element.razonsocial,
+            cuentaPredial: element.cuentapredial,
+            rpu: element.rpu,
+          });
+        });
+        return negocios;
       } catch (error: any) {
         throw new Error(error);
       }
